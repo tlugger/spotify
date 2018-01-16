@@ -1,6 +1,7 @@
 from nio.block.base import Block
 from nio.properties import VersionProperty, StringProperty
 from nio.block.mixins import EnrichSignals
+import spotipy
 import spotipy.util as util
 
 
