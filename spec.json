@@ -1,40 +1,58 @@
 {
-  "namespace/BlockName": {
-    "version": "1.0.0",
-    "description": "Description of the block.",
+  "nio/Spotify": {
+    "version": "0.1.0",
+    "description": "A nio block for creating an authorization token for the Spotify Web API",
     "properties": {
-      "<property1>": {
-        "description": "Required description of the property"
+      "client_id": {
+        "title": "Client ID",
+        "type": "StringType",
+        "description": "API Client ID",
+        "default": "[[CLIENT_ID]]"
       },
-      "<property2>": {
-        "default": "Optional metadata with any key.",
-        "description": "Required description of the property"
+      "client_secret": {
+        "title": "Client Secret",
+        "type": "StringType",
+        "description": "API Client Secret",
+        "default": "[[CLIENT_SECRET]]"
+      },
+      "enrich": {
+        "title": "Signal Enrichment",
+        "type": "ObjectType",
+        "description": "If checked (true), the attributes of the incoming signal will be excluded from the outgoing signal. If unchecked (false), the attributes of the incoming signal will be included in the outgoing signal.",
+        "default": {
+          "enrich_field": "",
+          "exclude_existing": true
+        }
+      },
+      "redirect_uri": {
+        "title": "Redirect URI",
+        "type": "StringType",
+        "description": "Oauth2 Redirect URI",
+        "default": "http://localhost:8888/callback"
+      },
+      "scope": {
+        "title": "Scope",
+        "type": "StringType",
+        "description": "Scopes that token will have access to",
+        "default": null
+      },
+      "username": {
+        "title": "Username",
+        "type": "StringType",
+        "description": "Spotify Username",
+        "default": ""
       }
     },
     "inputs": {
-      "<input1 | default>": {
-        "description": "Required description of the input"
-      },
-      "<input2>": {
-        "description": "Required description of the input"
+      "default": {
+        "description": "Any list of signals"
       }
     },
     "outputs": {
-      "<output1 | default>": {
-        "description": "Required description of the output"
-      },
-      "<output2>": {
-        "description": "Required description of the output"
+      "default": {
+        "description": "A signal appended to each incoming signal containing a `token` attribute"
       }
     },
-    "commands": {
-      "<command1>": {
-        "description": "Required description of the command",
-        "type": "Optional type and other metadata with any key."
-      },
-      "<command2>": {
-        "description": "Required description of the command"
-      }
-    }
+    "commands": {}
   }
 }
